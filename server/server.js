@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 app.use(require('./routes/usuario'));
 
 
-// //mongoose.connect('mongodb://localhost:27017/cafeteria', {
+//mongoose.connect('mongodb://localhost:27017/cafeteria', {
 //   //  useNewUrlParser: true,
 //   //useUnifiedTopology: true,
 //   useFindAndModify: false,
@@ -25,7 +25,7 @@ app.use(require('./routes/usuario'));
 // }, (err, res ) =>  {
 //   if (err) throw error;
 //   console.log('Base de datos ONLINE');
-// });
+// /});
 
 app.listen(process.env.PORT, () => {
     console.log('Servidor esta en liena en el puerto ', process.env.PORT);
