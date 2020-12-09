@@ -34,7 +34,7 @@ useFindAndModify: false,
  useCreateIndex: true
  }, (err, res ) =>  {
    if (err) throw error;
- console.log('Base de datos ONLINE');
+ console.log('Base de datos ONLINE'); 
 });
 
 app.listen(process.env.PORT, () => {
