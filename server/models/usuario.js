@@ -3,11 +3,19 @@ const mongoose = require ('mongoose');
 let Schema = mongoose.Schema;
 
 let usuarioSchema = new Schema({
+    _id: {
+        type: String,
+        required: [true, 'El id es necesario']   
+    },
     nombre: {
         type: String,
-        required: [true, 'El nombre es necesario' ]
+        required: [true, 'El nombre es necesario']
     },
-    email: {
+    apellidos: {
+        type: String,
+        required: [true, 'El nombre es necesario']
+    },
+    email:{
         type: String,
         required: [true, 'El correo es necesario'],
         unique: true
@@ -21,7 +29,7 @@ let usuarioSchema = new Schema({
         required: false
     },
     role: {
-        type: String, 
+        type: String,
         default: 'USER_ROLE'
     },
     estado: {
@@ -33,5 +41,5 @@ let usuarioSchema = new Schema({
         default: false
     }
 });
-module.exports = mongoose. model('Usuario', usuarioSchema);
 
+module.exports = mongoose.model('Usuario', usuarioSchema);
