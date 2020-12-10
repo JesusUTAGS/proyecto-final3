@@ -3,13 +3,14 @@ const _ = require('underscore');
 const app = express();
 const Producto = require('../models/producto');
 
-app.get('/producto', (req, res) => {
-    let desde = req.query.desde || 0;
-    let hasta = req.query.hasta || 100;
+app.get('/producto/:id', function(req, res)  {
+    // let desde = req.query.desde || 0;
+    // let hasta = req.query.hasta || 100;
+    let idProducto = req.params.id;
 
-    Producto.find({})
-    .skip(Number(desde))
-    .limit(Number(hasta))
+    Producto.findById({_id: idProducto})
+    // .skip(Number(desde))
+    // .limit(Number(hasta))
     .populate('categoria', 'descripcion usuario')
     .exec((err, productos) => {
         if(err) {

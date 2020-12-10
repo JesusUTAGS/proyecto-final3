@@ -6,14 +6,15 @@ const app = express();
 
  
   
-  app.get('/usuario', function (req, res) {
+  app.get('/usuario/:id', function (req, res) {
 
-      let desde = req.query.desde || 0;
-      let hasta = req.query.hasta || 100;
+    //   let desde = req.query.desde || 0;
+    //   let hasta = req.query.hasta || 100;
+    let idusuario = req.params.id;
 
-    Usuario.find({ estado: true })
-    .skip(Number(desde))
-    .limit(Number(hasta))
+    Usuario.findById({_id: idusuario })
+    // .skip(Number(desde))
+    // .limit(Number(hasta))
     .exec((err, usuarios) =>{
        if(err) {
            return res.status(400).json({

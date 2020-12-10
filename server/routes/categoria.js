@@ -3,13 +3,14 @@ const _ = require('underscore');
 const app = express();
 const Categoria = require('../models/categoria');
 
-app.get('/categoria', (req, res) => {
-    let desde = req.query.desde || 0;
-    let hasta = req.query.hasta || 100;
+app.get('/categoria/:id', (req, res) => {
+    // let desde = req.query.desde || 0;
+    // let hasta = req.query.hasta || 100;
+    let idCategoria = req.params.id;
 
-    Categoria.find({})
-    .skip(Number(desde))
-    .limit(Number(hasta))
+    Categoria.findById({_id: idCategoria})
+    // .skip(Number(desde))
+    // .limit(Number(hasta))
     .populate('usuario','nombre email')
     .exec((err, categorias) => {
         if(err) {
