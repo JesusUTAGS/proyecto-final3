@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//hola mundo
+//hola mundo 
 //parse application/x-www-fomr-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -50,7 +50,7 @@ app.use(require('./routes/login'));
 
 //HOLAMUNDO
 mongoose.connect('mongodb +srv://admin:12345678__@cluster0.zrrea.mongodb.net/cafeteria', {
-    //mongoose.connect('mongodb://localhost/cafeteria', {
+  //mongoose.connect('mongodb://localhost/cafeteria', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
